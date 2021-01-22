@@ -629,16 +629,16 @@ class IsGm(IsoGeomGen):
                     # add new surface to coincident surface list
                     match_surfs.append(surf)
 
-                    # check if original surfaces are empty (no vertices)
+                    # check if original surfaces are empty (no triangles)
                     # if so delete empty meshset and remove from list
                     s2_remaining = \
-                        self.mb.get_entities_by_type(s2, types.MBVERTEX)
+                        self.mb.get_entities_by_type(s2, types.MBTRI)
                     if len(s2_remaining) == 0:
                         # delete surface from list and mb instance
                         self.isovol_meshsets[v2]['surfs_EH'].remove(s2)
 
                     s1_remaining = \
-                        self.mb.get_entities_by_type(s1, types.MBVERTEX)
+                        self.mb.get_entities_by_type(s1, types.MBTRI)
                     if len(s1_remaining) == 0:
                         # delete from list and mb instance and move to
                         # next surf

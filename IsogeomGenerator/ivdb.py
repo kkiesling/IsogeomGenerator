@@ -190,7 +190,9 @@ class IvDb(IsoGeomGen):
         e.db_type = "STL"
         e.filename = str(i)
         e.variables = self.data
-        export_res = v.ExportDatabase(e)
+        opts = v.GetExportOptions('STL')
+        opts['Binary format'] = 0
+        export_res = v.ExportDatabase(e, opts)
 
         # check if exporting was successful or not and adjust values
         if export_res == 0:
